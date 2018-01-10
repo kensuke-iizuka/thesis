@@ -1,0 +1,81 @@
+\documentclass[11pt, a4j]{bthesis}
+
+%-usepackage---------------------------------------%
+\usepackage[dvips]{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{txfonts}
+\usepackage{ascmac}
+\usepackage{bm}
+\usepackage{multirow}
+\usepackage{textmf/drafts}
+\usepackage{float}
+\usepackage{url}
+%-end usepackage-----------------------------------%
+
+% 要旨用和文題目 英文題目
+\AJtitle{マルチFPGAボードによるGoogLeNetの高速化}
+
+% 要旨用和文題目 英文題目
+\TJtitle{マルチFPGAボードによるGoogLeNetの高速化}
+
+\Jauthor{飯塚　健介}
+\Eauthor{Kensuke Iizuka}
+\Kauthor{イイヅカ　ケンスケ}
+\StudentID{61401007}
+
+\Boss{天野 英晴 教授}
+\Tmajor{情報工学科}
+\Amajor{情報工学}
+\Emajor{Information and Computer Science}
+
+%-review mode--------------------------------------%
+%\pagestyle{drafts}
+%\renewcommand{\baselinestretch}{1.5}
+%-end review mode----------------------------------%
+
+\begin{document}
+\pagestyle{empty}
+
+%-title--------------------------------------------%
+\maketitle
+%-end title----------------------------------------%
+
+
+%-abstract-----------------------------------------%
+\input{chap0/abstract.tex}
+\makejabstract
+%-end abstract-------------------------------------%
+
+
+%-contents-----------------------------------------%
+\pagenumbering{roman}
+\tableofcontents
+\listoffigures
+\listoftables
+%-end contents-------------------------------------%
+
+
+%-body---------------------------------------------%
+\pagestyle{headings}
+\pagebreak
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chap1/introduction.tex}
+\input{chap2/sotb.tex}
+\input{chap3/survey.tex}
+\input{chap4/cma.tex}
+\input{chap5/proposal.tex}
+\input{chap6/eval.tex}
+\input{chap7/conclusion.tex}
+\input{chap8/acknowledge.tex}
+%-end body-----------------------------------------%
+
+
+%-reference----------------------------------------%
+\bibliographystyle{junsrt}
+%\nocites{*}
+\bibliography{bibdata}
+%-end reference------------------------------------%
+\end{document}

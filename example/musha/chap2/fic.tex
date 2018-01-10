@@ -1,0 +1,48 @@
+\chapter{FiC-SW}
+\section{FiC(Flow-in-Cloud)システム}
+FiC(Flow-in-Cloud)システムは、NEDO人工知能プロジェクトにおいて、FPGAノード、GPUノード、メモリノードなどの異種ノードを多数組み合わせた大規模計算システムである。図\ref{fig_fic1}はFPGA搭載スイッチノード(FiC-SW)を中心としたFiCシステムの構成例を示す。このシステムはデータフローによって各ノードが動作し、目的の処理が進められるようになっている。図\ref{fig_fic2}はFPGA、GPU、メモリを組み合わせ機械学習処理を行うシステムの構成例である。
+
+さらに、FiCシステムでは、各ノード間の接続は低コストなサーキットスイッチングで行う。これは、通信の帯域を保証することで、このシステム上で動作する専用のシステムソフトウェアのオーバーヘッドを可能な限り減少させ、アプリケーションを高速化させる狙いがある。
+
+\begin{figure}[ht]  
+ \begin{center}   
+	\includegraphics[width=1.0\columnwidth]{fig/FiC.eps}
+  \caption{FiCの構成例}
+%  \ecaption{Static analysis result of an example pattern}
+  \label{fig_fic1}  
+ \end{center}  
+\end{figure}
+
+\begin{figure}[ht]  
+ \begin{center}   
+	\includegraphics[width=1.0\columnwidth]{fig/example.eps}
+  \caption{FiCによる学習システム構成例}
+%  \ecaption{Static analysis result of an example pattern}
+  \label{fig_fic2}  
+ \end{center}  
+\end{figure}
+
+\section{FiC-SW1}
+FiC-SW１は、初期のソフトウェア開発用のテストベッドのために使う、高速リンクを多数接続したFPGAボードである。このFiC-SW１はシステムソフトウェア開発用テストベッドとしての役割だけだでなく、将来のFiCシステムのスイッチングハブとしての役割、GPU開発が完了するまでの演算コアとしての役割もある。
+
+図\ref{fig_ficsw1}に現在開発中のFiC-SW1ボードの構成を示す。FPGAにはXilinx社のKintex Ultrascale KU095を用いる。ストレージとしてはDDR-4 SDRAM16GBを4組持つ。ボード間接続のためには8Gbpsの高速シリアルリンクを8組装備する。リンクは全二重のため、合計の転送容量は16Gbpsとなる。
+
+また、制御用に制御用に RaspberryPi 3 ボードをドーターボードの形で接続する。FPGAの再構成などはこのRasPi3からEthernet経由で行う。
+
+\begin{figure}[ht]  
+ \begin{center}   
+	\includegraphics[width=1.0\columnwidth,bb=0 0 720 540]{img/ficsw1.png}
+        \caption{FiC-SW1ボードの構成}
+%  \ecaption{Static analysis result of an example pattern}
+  \label{fig_ficsw1}  
+ \end{center}  
+\end{figure}
+
+
+
+
+
+
+
+
+
