@@ -2,6 +2,15 @@ INPUT=main.tex
 
 OUTPUT=main
 
+UNAME := $(shell uname -s)
+  ifeq ($(UNAME),Linux)
+    SYSTEM := LINUX
+	VIEWER=start evince
+  endif
+  ifeq ($(UNAME),Darwin)
+    SYSTEM := OSX
+	VIEWER=open -a /Applications/Skim.app
+  endif
 
 all:
 	latexmk -jobname=$(OUTPUT) $(INPUT)
