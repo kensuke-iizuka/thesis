@@ -391,4 +391,7 @@ tags
 !.vscode/extensions.json
 .history
 
+# My settings
+example/*
 # End of https://www.gitignore.io/api/vim,tex,latex,linux,macos,visualstudiocode
+
