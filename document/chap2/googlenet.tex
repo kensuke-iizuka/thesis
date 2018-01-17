@@ -10,18 +10,18 @@ GoogleNetは畳込みニューラルネットワーク(CNN: Convolutional Neural
 %Neural Networkの説明
 \subsection{Neural Network}
 \label{sec:nn}
-ニューラルネットワークは動物の神経ニューロンが接続され、神経物質が伝搬されるように演算モジュールを層として複数、結合していく。
-演算ネットワークでは神経物質の代わりに例えば画像における画素値のような入力ベクトルの演算結果を伝搬していく。
-ニューラルネットワーク及び機械学習では２つの演算フェーズ、学習と推論がある。
-学習では教師データ(識別された画像)をもとに各演算層のパラメータを決定する、
-推論では学習で得たパラメータを用いて、入力値(未識別の画像)から演算(入力画像の識別)を行う。
+ニューラルネットワークは動物の神経ニューロンが接続され，神経物質が伝搬されるように演算モジュールを層として複数，結合していく．
+演算ネットワークでは神経物質の代わりに例えば画像における画素値のような入力ベクトルの演算結果を伝搬していく．
+ニューラルネットワーク及び機械学習では２つの演算フェーズ，学習と推論がある．
+学習では教師データ(識別された画像)をもとに各演算層のパラメータを決定する，
+推論では学習で得たパラメータを用いて，入力値(未識別の画像)から演算(入力画像の識別)を行う．
 本研究では推論アルゴリズムにフォーカスしたアクセラレータを実装するので推論演算で用いられるアルゴリズムについて説明する
 \subsection{Convolution}
 \label{sec:conv}
 CNNはその名前にも含まれているように式で表される畳み込み演算と呼ばれる行列の積和演算がその主なアルゴリズムである．
-CNNでは各層の演算結果を次の層の入力値として受け渡す。これを特徴マップと呼ぶ。
+CNNでは各層の演算結果を次の層の入力値として受け渡す．これを特徴マップと呼ぶ．
 特徴マップは畳み込み層や全結合層で重みフィルタと呼ばれる学習結果から得られる行列と積和演算が行われる
-式で畳み込み演算、マックスプーリング、全結合の演算を示す
+式で畳み込み演算，マックスプーリング，全結合の演算を示す
 % conv
 \begin{eqnarray}
 	output(x, y)^{i} = input(x, y)^{i} / (k + \alpha \sum_{j=max(0, i-n/2)}^{min(N-1, i+n/2)} (a^j_{x, y})^2)^\beta
@@ -36,7 +36,8 @@ CNNでは各層の演算結果を次の層の入力値として受け渡す。�
 \end{eqnarray}
 
 これらの演算を各層で処理し伝搬していき出力されるという構造をとっている．
-CNNでは多くのネットワークモデルでこの畳込み層が主である。
+CNNでは多くのネットワークモデルでこの畳込み層が主である．
+
 \section{GoogLeNet}
 \label{sec:googlenet}
 GoogLeNetは2014年のILSVRCで最高精度をマークしたCNNのモデルの一つである．構成要素は上述の畳み込み演算，プーリング処理などが主であるという点においてはAlexNetなどと
@@ -44,14 +45,14 @@ GoogLeNetは2014年のILSVRCで最高精度をマークしたCNNのモデルの�
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap2/fig/alexnet.pdf}
+  \includegraphics[width=12cm]{./chap2/fig/alexnet.png}
   \caption{AlexNetのアーキテクチャ}
   \label{fig:alexnet}
 \end{figure}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap2/fig/googlenet.pdf}
+  \includegraphics[width=1.0\hsize]{./chap2/fig/googlenet.png}
   \caption{GoogLeNetのアーキテクチャ}
   \label{fig:googlenet}
 \end{figure}
@@ -65,7 +66,8 @@ GoogLeNetは層を深くする代わりにそのフィルタサイズを小さ�
 Inception層は次の図で示される(これは図の一部を拡大したものと同じである)
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
+  % \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
+  \includegraphics[width=12cm]{./chap2/fig/test.jpg}
   \caption{Inception層}
   \label{fig:inception}
 \end{figure}
@@ -76,35 +78,43 @@ Inception層の出力の手前のDepthConcat層は横に広がった層のそれ
 一つの行列として出力値にまとめる処理を行っている．
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
-  \caption{Inception層}
+  % \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
+  \includegraphics[width=12cm]{./chap2/fig/test.jpg}
+  \caption{Inception層
   \label{fig:inception}
 \end{figure}
 この特徴的なInception層を積層していくことで，GoogLeNetは構成される．表○にGoogLeNetでの各層で必要なパラメータ数をまとめる．
 
-\begin{table}[ht]
- \begin{center}
-  \caption{GoogLeNetの各層の詳細なパラメータ}
-   \begin{tabular}{|c|c|c|c|c|c|c|} \hline
-     層 & 入力fm N & 出力fm M & サイズ(R,C) & カーネルK & ストライドS & パディング \\ \hline
-     CONV1 & 3 & 96 & 55 & 11 & 4 & 0 \\
-     NORM1 & 96 & 96 & 55 & - & - & - \\
-     POOL1 & 96 & 96 & 27 & 3 & 2 & - \\
-     CONV2 & 96 & 256 & 27 & 5 & 1 & 2 \\
-     NORM2 & 256 & 256 & 27 & - & - & - \\
-     POOL2 & 256 & 256 & 27 & 3 & 2 & - \\
-     CONV3 & 256 & 384 & 13 & 3 & 1 & 1\\
-     CONV4 & 384 & 384 & 13 & 3 & 1 & 1\\
-     CONV5 & 384 & 256 & 13 & 3 & 1 & 1\\
-     POOL5 & 256 & 256 & 6 & 3 & 2 & - \\
-     FC6 & 9216 & 4096 & - & - & - & - \\
-     FC7 & 4096 & 4096 & - & - & - & - \\
-     FC8 & 4096 & 1000 & - & - & - & - \\ \hline
+\begin{table}[p]
+  \begin{center}
+  \caption{GoogLeNet incarnation of the Inception architecture.}
+  \label{table:googlenet}
+  \begin{tabular}{|r|r|r|r|r|r|r|r|r|r|r|r|} \hline
+  % \multicolumn{1}{|c|}{type} & \multicolumn{1}{|c|}{patch size/ stride} & \multicolumn{1}{|c|}{output size} & \multicolumn{1}{|c|}{depth} & \multicolumn{1}{|c|}{\#1×1} & \multicolumn{1}{|c|}{\#3×3 reduce} & \multicolumn{1}{|c|}{\#3×3} & \multicolumn{1}{|c|}{\#5×5 reduce} & \multicolumn{1}{|c|}{\#5×5} & \multicolumn{1}{|c|}{pool proj} & \multicolumn{1}{|c|}{params} & \multicolumn{1}{|c|}{ops} \\ \hline \hline
+  convolution & 7×7/2 & 112×112×64 & 1 &  &  &  &  &  &  & 2.7K & 34M \\ \hline
+  max pool & 3×3/2 & 56×56×64 & 0 &  &  &  &  &  &  &  &  \\ \hline
+  convolution & 3×3/1 & 56×56×192 & 2 &  & 64 & 192 &  &  &  & 112K & 360M  \\ \hline
+  max pool & 3×3/2 & 28×28×192 & 0 &  &  &  &  &  &  &  & \\ \hline
+  inception (3a) &  & 28×28×256 & 2 & 64 & 96 & 128 & 16 & 32 & 32 & 159K & 128M \\ \hline
+  inception (3b) &  & 28×28×480 & 2 & 128 & 128 & 192 & 32 & 96 & 64 & 380K & 304M \\ \hline
+  max pool & 3×3/2 & 14×14×480 & 0 &  &  &  &  &  &  &  &  \\ \hline
+  inception (4a) &  & 14×14×512 & 2 & 192 & 96 & 208 & 16 & 48 & 64 & 364K & 73M \\ \hline
+  inception (4b) &  & 14×14×512 & 2 & 160 & 112 & 224 & 24 & 64 & 64 & 437K & 88M \\ \hline
+  inception (4c) &  & 14×14×512 & 2 & 128 & 128 & 256 & 24 & 64 & 64 & 463K & 100M \\ \hline
+  inception (4d) &  & 14×14×528 & 2 & 112 & 144 & 288 & 32 & 64 & 64 & 580K & 119M \\ \hline
+  inception (4e) &  & 14×14×832 & 2 & 256 & 160 & 320 & 32 & 128 & 128 & 840K & 170M \\ \hline
+  max pool & 3×3/2 & 7×7×832 & 0 &  &  &  &  &  &  &  &  \\ \hline
+  inception (5a) &  & 7×7×832 & 2 & 256 & 160 & 320 & 32 & 128 & 128 & 1072K & 54M \\ \hline
+  inception (5b) &  & 7×7×1024 & 2 & 384 & 192 & 384 & 48 & 128 & 128 & 1388K & 71M \\ \hline
+  avg pool & 7×7/1 & 1×1×1024 & 0 &  &  &  &  &  &  &  &  \\ \hline
+  dropout (40\%) &  & 1×1×1024 & 0 &  &  &  &  &  &  &  &  \\ \hline
+  linear &  & 1×1×1000 & 1 &  &  &  &  &  &  & 1000K & 1M \\ \hline
+  softmax &  & 1×1×1000 & 0 &  &  &  &  &  &  &  &  \\ \hline
   \end{tabular}
-  \label{googlenet_params}  
- \end{center}
-\end{table}
+  \end{center}
+  \end{table}
+  
 
-この表を見るとAlecNetに見られるような全結合層がないことがわかる．GoogLeNetでは高い認識精度を保ったまま，計算量の多い全結合層を
+この表を見るとAlexNetに見られるような全結合層がないことがわかる．GoogLeNetでは高い認識精度を保ったまま，計算量の多い全結合層を
 削除することで全体の計算量を減らしている．
 }
