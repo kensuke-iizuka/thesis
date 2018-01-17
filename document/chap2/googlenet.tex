@@ -45,14 +45,14 @@ GoogLeNetは2014年のILSVRCで最高精度をマークしたCNNのモデルの�
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap2/fig/alexnet.png}
+  \includegraphics[scale=0.5]{./chap2/fig/alexnet.png}
   \caption{AlexNetのアーキテクチャ}
   \label{fig:alexnet}
 \end{figure}
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=1.0\hsize]{./chap2/fig/googlenet.png}
+  \includegraphics[width=0.5\hsize]{./chap2/fig/googlenet.png}
   \caption{GoogLeNetのアーキテクチャ}
   \label{fig:googlenet}
 \end{figure}
@@ -66,8 +66,7 @@ GoogLeNetは層を深くする代わりにそのフィルタサイズを小さ�
 Inception層は次の図で示される(これは図の一部を拡大したものと同じである)
 \begin{figure}[h]
   \centering
-  % \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
-  \includegraphics[width=12cm]{./chap2/fig/test.jpg}
+  \includegraphics[scale=0.5]{./chap2/fig/inception.pdf}
   \caption{Inception層}
   \label{fig:inception}
 \end{figure}
@@ -76,13 +75,12 @@ Inception層は次の図で示される(これは図の一部を拡大したも�
 削減する，これによって計算量が減るだけでなく，精度向上が実現できる．
 Inception層の出力の手前のDepthConcat層は横に広がった層のそれぞれの出力結果を図○のように深さ方向に結合することで
 一つの行列として出力値にまとめる処理を行っている．
-\begin{figure}[h]
-  \centering
-  % \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
-  \includegraphics[width=12cm]{./chap2/fig/test.jpg}
-  \caption{Inception層
-  \label{fig:inception}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=12cm]{./chap2/fig/inception.pdf}
+%   \caption{Inception層
+%   \label{fig:inception}
+% \end{figure}
 この特徴的なInception層を積層していくことで，GoogLeNetは構成される．表○にGoogLeNetでの各層で必要なパラメータ数をまとめる．
 
 \begin{table}[p]
@@ -90,7 +88,7 @@ Inception層の出力の手前のDepthConcat層は横に広がった層のそれ
   \caption{GoogLeNet incarnation of the Inception architecture.}
   \label{table:googlenet}
   \begin{tabular}{|r|r|r|r|r|r|r|r|r|r|r|r|} \hline
-  % \multicolumn{1}{|c|}{type} & \multicolumn{1}{|c|}{patch size/ stride} & \multicolumn{1}{|c|}{output size} & \multicolumn{1}{|c|}{depth} & \multicolumn{1}{|c|}{\#1×1} & \multicolumn{1}{|c|}{\#3×3 reduce} & \multicolumn{1}{|c|}{\#3×3} & \multicolumn{1}{|c|}{\#5×5 reduce} & \multicolumn{1}{|c|}{\#5×5} & \multicolumn{1}{|c|}{pool proj} & \multicolumn{1}{|c|}{params} & \multicolumn{1}{|c|}{ops} \\ \hline \hline
+  \multicolumn{1}{|c|}{type} & \multicolumn{1}{|c|}{patch size/ stride} & \multicolumn{1}{|c|}{output size} & \multicolumn{1}{|c|}{depth} & \multicolumn{1}{|c|}{\#1×1} & \multicolumn{1}{|c|}{\#3×3 reduce} & \multicolumn{1}{|c|}{\#3×3} & \multicolumn{1}{|c|}{\#5×5 reduce} & \multicolumn{1}{|c|}{\#5×5} & \multicolumn{1}{|c|}{pool proj} & \multicolumn{1}{|c|}{params} & \multicolumn{1}{|c|}{ops} \\ \hline \hline
   convolution & 7×7/2 & 112×112×64 & 1 &  &  &  &  &  &  & 2.7K & 34M \\ \hline
   max pool & 3×3/2 & 56×56×64 & 0 &  &  &  &  &  &  &  &  \\ \hline
   convolution & 3×3/1 & 56×56×192 & 2 &  & 64 & 192 &  &  &  & 112K & 360M  \\ \hline
