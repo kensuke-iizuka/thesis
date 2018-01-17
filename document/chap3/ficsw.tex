@@ -20,11 +20,12 @@ FiCは３つの基板(ノード)とそれらをつなぐネットワークから
 GPUノード，メモリノードがある．これらは図\ref{fig:arch_fic}のような接続により計算クラスタとして各種アプリケーションに用いられる
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap3/fig/arch_fic.pdf}
+  % \includegraphics[width=12cm]{./chap3/fig/arch_fic.pdf}
+  \includegraphics[width=12cm]{./chap3/fig/test.jpg}
   \caption{FiCのアーキテクチャ)
   \label{fig:arch_fic}
 \end{figure}
-FPGAは高機能スイッチノードとしての役割が期待され，他のFPGAやGPU、メモリノードと接続されることでGPU間の高速通信を実現するとともに
+FPGAは高機能スイッチノードとしての役割が期待され，他のFPGAやGPU，メモリノードと接続されることでGPU間の高速通信を実現するとともに
 FPGAにプログラムされたデータ処理機構などを組み込むことでホストプロセッサの介在を不要とする．
 メモリノードはFPGAノードに接続されることで，個々のGPUに大容量DRAMをもたせる必要がなくなり，GPUデバイスへのメモリコピーを
 なくすことができ，メモリの利用効率を向上させることができる．
@@ -33,7 +34,8 @@ FPGAにプログラムされたデータ処理機構などを組み込むこと�
 FiCにおいて高機能スイッチとなるFPGAボードはFiCSWと名付けられ，その試作ボードは図○である．
 \begin{figure}[h]
   \centering
-  \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
+  % \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
+  \includegraphics[width=12cm]{./chap3/fig/ficsw.jpg}
   \caption{FiC-SWの試作ボード}
   \label{fig:ficsw}
 \end{figure}
@@ -42,7 +44,7 @@ FiCにおいて高機能スイッチとなるFPGAボードはFiCSWと名付け�
 2,高速シリアルリンク32チャネル，8リンク
 3,16GBのDRAM2バンク
 4,Raspberry Pie3
-Raspberry Pie3を用いることで、FPGAを遠隔操作して動的に再構成することができる。
+Raspberry Pie3を用いることで，FPGAを遠隔操作して動的に再構成することができる．
 \section{FiC-SWでの通信様式}
 \label{sec:ficsw_communication}
 FiCでは将来的に広帯域光通信技術をシステムの相互接続ネットワークに用いることが想定されている．
@@ -50,6 +52,4 @@ FiCでは将来的に広帯域光通信技術をシステムの相互接続ネ�
 ことができる．光信号はサーキットスイッチを用いることが現実的である．
 今回のボードは従来の電気信号であるが来たる光通信の将来を想定して，サーキットスイッチによるネットワークを構成する．
 サーキット数を増やすために時分割多重(TDM: Time Division Mutipling)による通信様式をとる．
-
-
 }
