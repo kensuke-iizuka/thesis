@@ -12,8 +12,8 @@ UNAME := $(shell uname -s)
 	VIEWER=open -a /Applications/Skim.app
   endif
 
-all:
-	latexmk -jobname=$(OUTPUT) $(INPUT)
+all: clean temp view
+	# latexmk -jobname=$(OUTPUT) $(INPUT)
 
 clean:
 	latexmk -CA -jobname=$(OUTPUT) $(INPUT)
@@ -22,7 +22,11 @@ clean:
 	rm -rf *.bbl
 
 view:
-	latexmk -pv -jobname=$(OUTPUT) $(INPUT)
+	# latexmk -pv -jobname=$(OUTPUT) $(INPUT)
+	evince main.pdf
 
 watch:
 	latexmk -pvc -jobname=$(OUTPUT) $(INPUT)
+
+temp:
+	platex main.tex && dvipdfmx main.dvi 
