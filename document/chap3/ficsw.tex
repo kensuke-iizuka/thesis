@@ -18,13 +18,12 @@ FiCはNEDOのプロジェクトとして以下のようなシステムの構成�
 \label{sec:arch_fic}
 FiCは３つの基板(ノード)とそれらをつなぐネットワークから構成される．ノードには本研究で用いるFPGAノードだけでなく
 GPUノード，メモリノードがある．これらは図\ref{fig:arch_fic}のような接続により計算クラスタとして各種アプリケーションに用いられる
-\begin{figure}[h]
-  \centering
-  % \includegraphics[width=12cm]{./chap3/fig/arch_fic.pdf}
-  \includegraphics[width=12cm]{./chap3/fig/test.jpg}
-  \caption{FiCのアーキテクチャ)
-  \label{fig:arch_fic}
-\end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=12cm]{./chap3/fig/arch_fic.pdf}
+%   \caption{FiCのアーキテクチャ)
+%   \label{fig:arch_fic}
+% \end{figure}
 FPGAは高機能スイッチノードとしての役割が期待され，他のFPGAやGPU，メモリノードと接続されることでGPU間の高速通信を実現するとともに
 FPGAにプログラムされたデータ処理機構などを組み込むことでホストプロセッサの介在を不要とする．
 メモリノードはFPGAノードに接続されることで，個々のGPUに大容量DRAMをもたせる必要がなくなり，GPUデバイスへのメモリコピーを
@@ -34,12 +33,12 @@ FPGAにプログラムされたデータ処理機構などを組み込むこと�
 FiCにおいて高機能スイッチとなるFPGAボードはFiCSWと名付けられ，その試作ボードは図○である．
 \begin{figure}[h]
   \centering
-  % \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
-  \includegraphics[width=12cm]{./chap3/fig/ficsw.jpg}
+  \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
+  % \includegraphics[width=12cm]{./chap3/fig/ficsw.jpg}
   \caption{FiC-SWの試作ボード}
   \label{fig:ficsw}
 \end{figure}
-図\ref{fig:ficsw}中に赤枠で囲まれた①から④の要素で構成されている
+図\ref{fig:ficsw}中に赤枠で囲まれた4つの要素で構成されている
 1，Xilinx社製のXCKU095-FFVB2104()
 2,高速シリアルリンク32チャネル，8リンク
 3,16GBのDRAM2バンク
