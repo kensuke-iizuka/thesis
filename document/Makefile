@@ -23,7 +23,7 @@ clean:
 
 view:
 	# latexmk -pv -jobname=$(OUTPUT) $(INPUT)
-	evince main.pdf
+	evince main.pdf &
 
 watch:
 	latexmk -pvc -jobname=$(OUTPUT) $(INPUT)
