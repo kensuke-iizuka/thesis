@@ -56,6 +56,7 @@ GoogLeNetは2014年のILSVRCで最高精度をマークしたCNNのモデルの�
   \caption{GoogLeNetのアーキテクチャ}
   \label{fig:googlenet}
 \end{figure}
+
 両者を比較すると，GoogLeNetのほうが，層がより深くなっていること，さらに横に広がっていることがわかる.
 GoogLeNetは層を深くする代わりにそのフィルタサイズを小さくすることで，計算量，メモリアクセスを減らすように設計されている．
 〇〇の研究によると一つの大きなフィルタによる畳込みよりも複数の小さなフィルタによる畳込みのほうがより高い精度を出すことができるとされている．
@@ -64,12 +65,14 @@ GoogLeNetは層を深くする代わりにそのフィルタサイズを小さ�
 \section{Inception}
 \label{sec:inception}
 Inception層は次の図で示される(これは図の一部を拡大したものと同じである)
+
 \begin{figure}[h]
   \centering
   \includegraphics[scale=0.5]{./chap2/fig/inception.pdf}
   \caption{Inception層}
   \label{fig:inception}
 \end{figure}
+
 これを見ると横に広がった層の中で1＊1convと記されている層がある.この層ではサイズ１のフィルターを用いて，畳込み演算を行っている.
 この層は，次元削減を行っている．これは入力チャネル(入力行列の深さ)に対して少ない層のフィルタを畳み込み演算することでその深さを
 削減する，これによって計算量が減るだけでなく，精度向上が実現できる．
