@@ -18,14 +18,14 @@ FiCはNEDOのプロジェクトとして以下のようなシステムの構成�
 \subsection{FiCのアーキテクチャ}
 \label{sec:arch_fic}
 FiCは３つの基板(ノード)とそれらをつなぐネットワークから構成される．ノードには本研究で用いるFPGAノードだけでなく
-% GPUノード，メモリノードがある．これらは図\ref{fig:arch_fic}に示すような接続により計算クラスタとして各種アプリケーションに用いられる
+GPUノード，メモリノードがある．これらは図\ref{fig:arch_fic}に示すような接続により計算クラスタとして各種アプリケーションに用いられる
 
-% \begin{figure}[h]
-%   \centering
-%   \includegraphics[scale=0.05]{./chap3/fig/arch_fic.pdf}
-%   \caption{FiCのアーキテクチャ)
-%   \label{fig:arch_fic}
-% \end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=12cm]{./chap3/fig/arch_fic.pdf}
+  \caption{FiCのアーキテクチャ}
+  \label{fig:arch_fic}
+\end{figure}
 
 FPGAはシステムにおいて高機能スイッチノードとしての役割が期待され。
 他のFPGAやGPU，メモリノードと接続されることでGPU間の高速通信を実現するとともに
@@ -39,8 +39,7 @@ FiCにおいて高機能スイッチとなるFPGAボードはFiCSWと名付け�
 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=6cm]{./chap3/fig/ficsw.pdf}
-  % \includegraphics[width=12cm]{./chap3/fig/ficsw.jpg}
+  \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
   \caption{FiC-SWの試作ボード}
   \label{fig:ficsw}
 \end{figure}
@@ -53,6 +52,7 @@ FiCにおいて高機能スイッチとなるFPGAボードはFiCSWと名付け�
 4,Raspberry Pie3
 を搭載している。
 Raspberry Pie3を用いることで，FPGAを遠隔操作して動的に再構成することができる．
+
 \section{FiC-SWでの通信様式}
 \label{sec:ficsw_communication}
 FiCでは将来的に広帯域光通信技術をシステムの相互接続ネットワークに用いることが想定されている．
@@ -62,14 +62,14 @@ FiCでは将来的に広帯域光通信技術をシステムの相互接続ネ�
 今回のボードは従来の電気信号による通信を行うが来たる光通信の将来を想定して，サーキットスイッチによるネットワークを構成する．
 サーキット数を増やすために時分割多重(TDM: Time Division Mutipling)による通信様式をとる．
 
-% 図\ref{fig:arch-sw}は4リンクからなるシリアル入力から同じく4リンクからなるシリアル出力へのスイッチの模式図である。
-% 各リンクが4スロットを有していると仮定している。図中に示される入力スロットと出力スロットの接続が回線を確立する。
-% 図の破線矢印で示されるように1スロットから複数スロットへの出力を設定することも可能なので、
-% 容易にブロードキャストを行える。
+図\ref{fig:arch-sw}は4リンクからなるシリアル入力から同じく4リンクからなるシリアル出力へのスイッチの模式図である。
+各リンクが4スロットを有していると仮定している。図中に示される入力スロットと出力スロットの接続が回線を確立する。
+図の破線矢印で示されるように1スロットから複数スロットへの出力を設定することも可能なので、
+容易にブロードキャストを行える。
 
  \begin{figure}[h]
    \centering
-   \includegraphics[width=6cm]{./chap3/fig/arch_sw.pdf}
+   \includegraphics[width=12cm]{./chap3/fig/arch_sw.pdf}
    \caption{FiCのアーキテクチャ}
    \label{fig:arch-sw}
  \end{figure}
