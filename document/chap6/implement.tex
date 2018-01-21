@@ -1,7 +1,9 @@
 \chapter{実装}
 {
 \label{chap:implement}
-
+本章では\ref{chap:parallel}章の並列化に対する検討を元にして、FPGAに実装するアクセラレータについて解説する。
+アクセラレータは各スレッドごとにそれぞれ1枚のボードに処理を分割し、各ボード内でそれぞれの演算サイズに合わせた畳み込み、pooling処理の
+アクセラレータを実装する。
 \section{実装環境}
 \label{sec:impl_env}
 
