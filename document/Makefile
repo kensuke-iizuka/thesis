@@ -29,4 +29,7 @@ watch:
 	latexmk -pvc -jobname=$(OUTPUT) $(INPUT)
 
 temp:
-	platex main.tex && dvipdfmx main.dvi 
+	platex $(OUTPUT)
+	pbibtex $(OUTPUT)
+	platex $(OUTPUT)
+	dvipdfmx $(OUTPUT)
