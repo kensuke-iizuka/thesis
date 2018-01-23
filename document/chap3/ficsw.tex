@@ -5,7 +5,7 @@
   
   \section{FiCの概要}
   \label{sec:about_fic}
-  FiCはNEDOのプロジェクトとして以下のようなシステムの構成を目指している
+  FiCはNEDOのプロジェクトとして以下のようなシステムの構成を目指している.
   
   \begin{enumerate}
     \item 様々な種類の処理装置を適材適所で組み合わせて運用する「異種エンジンシステム」とすることで,汎用プロセッサを遥かに超える演算能力を有する
@@ -23,12 +23,12 @@
   
   \begin{figure}[h]
     \centering
-    \includegraphics[width=12cm]{./chap3/fig/arch_fic.pdf}
+    \includegraphics[scale=0.5]{./chap3/fig/arch_fic.pdf}
     \caption{FiCのアーキテクチャ}
     \label{fig:arch_fic}
   \end{figure}
   
-  FPGAはシステムにおいて高機能スイッチノードとしての役割が期待され.
+  FPGAはシステムにおいて高機能スイッチノードとしての役割が期待され,
   他のFPGAやGPU,メモリノードと接続されることでGPU間の高速通信を実現するとともに
   FPGAにプログラムされたデータ処理機構などを組み込むことでホストプロセッサの介在を不要とする.
   メモリノードはFPGAノードに接続されることで,個々のGPUに大容量DRAMをもたせる必要がなくなり,GPUデバイスへのメモリコピーを
@@ -40,7 +40,8 @@
   
   \begin{figure}[h]
     \centering
-    \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
+    % \includegraphics[width=12cm]{./chap3/fig/ficsw.pdf}
+    \includegraphics[width=12cm]{./chap3/fig/ficsw.png}
     \caption{FiC-SWの試作ボード}
     \label{fig:ficsw}
   \end{figure}
@@ -76,5 +77,4 @@
      \caption{FiCのアーキテクチャ}
      \label{fig:arch-sw}
    \end{figure}
-  
 }

@@ -1,7 +1,7 @@
 \chapter{GoogLeNet}
 {
 \label{chap:googlenet}
-本研究でマルチFPGA上に実装するアプリケーションであるGoogLeNetについて説明する.
+本研究でマルチFPGA上に実装するアプリケーションであるGoogLeNet\cite{googlenet}について説明する.
 GoogleNetは畳込みニューラルネットワーク(CNN: Convolutional Neural Network)のモデルの1つである.
 
 \section{Convolutional Neural Network}
@@ -19,14 +19,14 @@ AlexNetのILSVRC優勝を皮切りに様々なCNNのモデルの検討,実装が
 ニューラルネットワークでは２つの演算フェーズ,学習と推論がある.
 学習では教師データ(識別された画像)をもとに各演算層のパラメータを決定する.
 推論では学習で得たパラメータを用いて,入力値(未識別の画像)から演算(入力画像の識別)を行う.
-本研究ではCNNの推論アクセラレータを実装するので推論演算で用いられるアルゴリズムについて説明する
+本研究ではCNNの推論アクセラレータを実装するので推論演算で用いられるアルゴリズムについて説明する.
 
 \subsection{Convolution}
 \label{sec:conv}
 CNNはその名前にも含まれているように式で表される畳み込み演算と呼ばれる行列の積和演算がその主なアルゴリズムである.
 CNNでは各層の演算結果を次の層の入力値として受け渡す.これを特徴マップと呼ぶ.
 特徴マップは学習フェーズで得られた重みフィルタと呼ばれる行列と積和演算が行われ,同じく学習フェーズで得られたバイアスと呼ばれるパラメータを加算することで
-出力値を求める
+出力値を求める.
 % conv
 \begin{equation}
 	output(f_o, x, y) = \sum_{f_i = 0}^{N_if}\sum_{k_x = 0}^{K}\sum_{k_y = 0}^{K}weight(f_o, f_i,k_x,k_y) * input(f_i,x + k_x, y + k_y) + bias(f_o, x, y)
@@ -36,7 +36,7 @@ CNNでは各層の演算結果を次の層の入力値として受け渡す.こ�
 \subsection{Other layer calculation}
 \label{sec:other_calc}
 CNNには畳み込み演算の他にもいくつかの演算を必要とする。その代表的なものとして,全結合とプーリング処理がある。
-% これらはそれぞれ式\ref{eq:fc},式\ref{eq:pool}で表される。
+これらはそれぞれ式\ref{eq:fc},式\ref{eq:pool}で表される。
 
 % full connect
 \begin{equation}
@@ -61,7 +61,7 @@ CNNには畳み込み演算の他にもいくつかの演算を必要とする�
 GoogLeNetは2014年のILSVRCで最高精度をマークし優勝したCNNモデルである.
 構成要素は上述の畳み込み演算,プーリング処理などが主であるという点においてはAlexNetなどと
 違いはないがそれぞれの層の接続の仕方,層の深さが異なりAlexNetに見られる全結合層がないという点で異なる.
-AlexNet, GoogLeNetそれぞれについて図にその全体像を示す
+AlexNet, GoogLeNetそれぞれについて図にその全体像を示す.
 
 
 \begin{figure}[h]
@@ -78,9 +78,9 @@ AlexNet, GoogLeNetそれぞれについて図にその全体像を示す
   \label{fig:googlenet}
 \end{figure}
 
-% 図\ref{fig:alexnet},\ref{fig:googlenet}のブロックはそれぞれの演算層を示している。
-青のブロックは畳込み層,赤はpooling層,ピンクは全結合層,黄色はsoftmax層と呼ばれ,画像分類のために用いられる。
-緑のブロックはDepthConcat層で後述するInception層で並列に処理した出力特徴マップを結合する.
+図\ref{fig:alexnet},\ref{fig:googlenet}のブロックはそれぞれの演算層を示している。
+青のブロックは畳込み層,赤はpooling層,ピンクは全結合層,黄色はsoftmax層と呼ばれる画像分類のために用いられる。
+緑のブロックはDepthConcat層で並列に処理した出力特徴マップを結合する.
 両者を比較すると,GoogLeNetのほうが,層がより深くなっていること,さらに横に広がっていることがわかる.
 GoogLeNetは層を深くする代わりにそのフィルタサイズを小さくすることで,計算量,メモリアクセスを減らすように設計されている.
 % 〇〇の研究によると一つの大きなフィルタによる畳込みよりも複数の小さなフィルタによる畳込みのほうがより高い精度を出すことができるとされている.
