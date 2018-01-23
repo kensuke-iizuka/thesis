@@ -32,4 +32,5 @@ temp:
 	platex $(OUTPUT)
 	pbibtex $(OUTPUT)
 	platex $(OUTPUT)
+	platex $(OUTPUT)
 	dvipdfmx $(OUTPUT)
