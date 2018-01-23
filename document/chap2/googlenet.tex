@@ -117,6 +117,7 @@ Inception層の出力の手前のDepthConcat層は図\ref{fig:googlenet}の緑�
   \begin{center}
   \caption{GoogLeNetにおける各層の構成}
   \label{table:googlenet}
+  \scalebox{0.8}[0.8]{
   \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|} \hline
   \multicolumn{1}{|c|}{type} & \multicolumn{1}{|c|}{\shortstack{patch size/\\ stride}} & \multicolumn{1}{|c|}{\shortstack{output\\ size}} & \multicolumn{1}{|c|}{\#1$\times$1} & \multicolumn{1}{|c|}{\shortstack{\#3$\times$3\\ reduce}} & \multicolumn{1}{|c|}{\#3$\times$3} & \multicolumn{1}{|c|}{\shortstack{\#5$\times$5\\ reduce}} & \multicolumn{1}{|c|}{\#5$\times$5} & \multicolumn{1}{|c|}{\shortstack{pool\\ proj}} & \multicolumn{1}{|c|}{params} & \multicolumn{1}{|c|}{ops} \\ \hline \hline
   convolution    & 7$\times$7/2 & 112$\times$112$\times$64  &  &  &  &  &  &  & 2.7K & 34M \\ \hline
@@ -139,9 +140,10 @@ Inception層の出力の手前のDepthConcat層は図\ref{fig:googlenet}の緑�
   linear         &  & 1$\times$1$\times$1000 &  &  &  &  &  &  & 1000K & 1M \\ \hline
   softmax        &  & 1$\times$1$\times$1000 &  &  &  &  &  &  &  &  \\ \hline
   \end{tabular}
+  }
   \end{center}
 \end{table}
-  
+
 それぞれのInception層はサイズは異なるが,図\ref{fig:inception}に示す構造を取っている.
 表\ref{table:googlenet}中の\#3$\times$3reduceや\#5$\times$5reduceは3$\times$3や5$\times$5の畳み込み演算の前に行われる1$\times$1の畳み込み演算の重みの深さを示している。
 またpool projも同じようにmax poolの後に行われる,1$\times$1の畳み込み演算層の重みフィルタの深さを示している.
