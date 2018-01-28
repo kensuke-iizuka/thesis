@@ -30,7 +30,7 @@ CNNでは各層の演算結果を次の層の入力値として受け渡す．�
 % conv
 \begin{equation}
   \label{eq:conv}
-	\mathrm{output}(f_o， x， y) = \mathrm{bias}(f_o， x， y) + \sum_{f_i = 0}^{N_if}\sum_{k_x = 0}^{K}\sum_{k_y = 0}^{K}\mathrm{weight}(f_o， f_i，k_x，k_y) * \mathrm{input}(f_i，x + k_x， y + k_y)
+	\mathrm{output}(f_o, x, y) = \mathrm{bias}(f_o, x, y) + \sum_{f_i = 0}^{N_if}\sum_{k_x = 0}^{K}\sum_{k_y = 0}^{K}\mathrm{weight}(f_o, f_i,k_x,k_y) * \mathrm{input}(f_i,x + k_x, y + k_y)
 \end{equation}
 % 図\ref{fig:conv}に畳み込み演算の様子を図示する．
 
@@ -42,13 +42,13 @@ CNNには畳み込み演算の他にもいくつかの演算を必要とする�
 % full connect
 \begin{equation}
   \label{eq:fc}
-  \mathrm{output}(i) = \mathrm{bias}(i) + \sum_{j=0}^{N} weight(i， j) * input(j)
+  \mathrm{output}(i) = \mathrm{bias}(i) + \sum_{j=0}^{N} weight(i, j) * input(j)
 \end{equation}
 
 % max pool
 \begin{equation}
   \label{eq:pool}
-	\mathrm{output}(x， y)^{i} = max / average(\mathrm{input}(f_i，x + k_x， y + k_y)) (0 \leq (k_x， k_y)  K)
+	\mathrm{output}(x, y)^{i} = max / average(\mathrm{input}(f_i,x + k_x, y + k_y)) (0 \leq (k_x, k_y)  K)
 \end{equation}
 $(1 \leq d \leq 128)$
 全結合層では畳み込み演算同様，入力値と重みフィルタの値を乗算するところは同じである．しかし，それぞれの出力値に入力値全てが必要という点で異なる．
@@ -67,7 +67,7 @@ AlexNet， GoogLeNetそれぞれについて図にその全体像を示す．
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.5]{．/chap2/fig/alexnet.png}
+  \includegraphics[scale=0.5]{./chap2/fig/alexnet.png}
   \caption{AlexNetのアーキテクチャ}
   \label{fig:alexnet}
 \end{figure}
@@ -93,7 +93,7 @@ Inception層は次の図で示される(これは図\ref{fig:googlenet}の一部
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0．5]{./chap2/fig/inception.pdf}
+  \includegraphics[scale=0.5]{./chap2/fig/inception.pdf}
   \caption{Inception層}
   \label{fig:inception}
 \end{figure}
