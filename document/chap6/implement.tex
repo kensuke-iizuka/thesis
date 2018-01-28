@@ -30,14 +30,14 @@ FiCのマルチFPGAシステムでは、流れてきたデータをそれぞれ�
 \ref{sec:module_impl}節で述べたモジュールの模式図内のPE部の設計は\cite{optimized}を参考にした。
 % ここでは\ref{code:conv}に示す、畳み込み演算の疑似コードをループタイリングによって分割することで並列化することを考える。
 % \ref{code:conv_tile}がループタイリングを行った疑似コードである。$T_m$、$T_n$がそれぞれ入力値、出力値のタイルのサイズとなっている。
-% この疑似コードに倣って演算モジュールを作ると図\ref{fig:conv_pe}のような演算器を設計できる。
+この疑似コードに倣って演算モジュールを作ると図\ref{fig:conv_pe}のような演算器を設計できる。
 
-% \begin{figure}[h]
-%     \centering
-%     \includegraphics[width=12cm]{./chap6/fig/ucla_pe.png}
-%     \caption{畳み込み演算器の模式図}
-%     \label{fig:para_inception}
-% \end{figure｝
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=12cm]{./chap6/fig/ucla_pe.png}
+    \caption{畳み込み演算器の模式図}
+    \label{fig:para_inception}
+\end{figure｝
 % 畳み込み演算器のタイリングしたモジュールの説明を入れる。
 }
 
