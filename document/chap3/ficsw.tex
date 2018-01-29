@@ -36,7 +36,7 @@
   
   \section{FiC-SWの概要}
   \label{sec:about_ficsw}
-  FiCにおいて高機能スイッチとなるFPGAボードはFiCSWと名付けられ，その試作ボードは図\ref{fig:ficsw}である．
+  FiCにおいて高機能スイッチとなるFPGAボードはFiC-SWと名付けられ，その試作ボードは図\ref{fig:ficsw}である．
   
   \begin{figure}[h]
     \centering
@@ -45,15 +45,15 @@
     \label{fig:ficsw}
   \end{figure}
   
-  図\ref{fig:ficsw}中に赤枠で囲まれた4つの要素で構成されている．
+  FiC-SWは，図\ref{fig:ficsw}中に赤枠で囲まれた4つの要素で構成されている．
   図の注釈の順に
   \begin{enumerate}
     \item Xilinx社製のUltraScale XCKU095-FFVB2104
-    \item 高速シリアルリンク8チャネル，32リンク
     \item 16GBのDRAM2バンク
+    \item 高速シリアルリンク8チャネル，32リンク
     \item Raspberry Pi3
   \end{enumerate}
-  を搭載している．Raspberry Pie3を用いることで，FPGAを遠隔操作して動的に再構成することができる．
+  を搭載している．Raspberry Pi3を用いることで，FPGAを遠隔操作して動的に再構成することができる．
   
   \section{FiC-SWでの通信様式}
   \label{sec:ficsw_communication}

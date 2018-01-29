@@ -18,13 +18,13 @@ FiCのマルチFPGAシステムでは、流れてきたデータをそれぞれ�
     \includegraphics[width=12cm]{./chap6/fig/thread_module.pdf}
     \caption{モジュールの模式図}
     \label{fig:thread_module}
-\end{figure｝
+\end{figure}
 入出力のインターフェイスにはXilinxが提供するAXI4-Streamを利用する。
 AXI4-Streamはデータストリーム用のインターフェイスである。これにより入出力データをストリーム形式で送受信できる。
 図\ref{fig:thread_module}に示すように入出力、重みフィルタにダブルバッファを設けることで演算に必要なデータを受け取ったら、
 演算を行うと同時にもう片方のバッファで次のデータの書き込みが可能となる。
 
-畳み込み演算はPEで行う。図\ref{fig:para_inception}で示した4つの計算スレッドのうちthread2、thread3、thread4については畳み込みやpooling処理
+畳み込み演算はPEで行う。図\ref{fig:para_inception}で示した4つの計算スレッドのうちThread2、Thread3、Thread4については畳み込みやpooling処理
 が連続して行われているので図\ref{fig:thread_module}が2つ接続するようなモジュールとなる。
 
 \section{畳み込み演算器の実装}
@@ -48,7 +48,7 @@ AXI4-Streamはデータストリーム用のインターフェイスである。
 \end{itembox}
 
 \begin{itembox}[1]{出力特徴マップチャンネルで並列化された畳み込み演算のCコード}
-    \
+    \label{code:conv_tile}
     \begin{verbatim}
     for (int r = 0; r < R; r++)
       for (int c = 0; c < C; c++)
@@ -69,7 +69,7 @@ AXI4-Streamはデータストリーム用のインターフェイスである。
     \centering
     \includegraphics[width=12cm]{./chap6/fig/ucla_pe.png}
     \caption{畳み込み演算器の模式図}
-    \label{fig:para_inception}
+    \label{fig:conv_pe}
 \end{figure}
 % 畳み込み演算器のタイリングしたモジュールの説明を入れる。
 }
