@@ -6,6 +6,7 @@
 \label{sec:eval_env}
 実装はVivado HLS(2017.3)を用いて実装を行った．対象となるFPGAボードは\ref{chap:ficsw}章の\ref{sec:about_ficsw}節でも言及した
 Xilinx社のKintex Ultrascale　XCKU095-FFVB2104である．動作周波数は100MHzとした．
+実装対象，ベンチマークとして表\ref{table:googlenet}に示されるInception(3a)層を用いた．
 Vivado HLS上でのシュミレーションの実行サイクル数から実行時間を計算した。
 比較対象となるCPUはIntel(R) Xeon(R) CPU E5-2667 0(@2.90GHz)を用いて，g++4.4.7でのO3最適化とOpenMPを使って
 コンパイルしたアプリケーションの実行時間を計測した．
@@ -32,20 +33,27 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 \section{実行時間の比較}
 \label{sec:resource_util}
 
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=15cm]{./chap6/fig/exec_time.pdf}
+    \caption{}
+    \label{fig:exec_graph}
+\end{figure}
+
 表\ref{table:exec_time}に各スレッドモジュールのFPGA実行時間とCPUでの実行時間を示す．
 また全ての演算を行った際の合計の実行時間も示す．
 
 \begin{table}[p]
     \begin{center}
-    \caption{各スレッドにおけるFPGAボードのリソース使用量とその割合 []内は\%}
+    \caption{各スレッドとInception(3a)層全体の実行時間の比較}
     \label{table:exec_time}
-    \begin{tabular}{|c|c|c|c|c|} \hline
-    \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{CPU} & \multicolumn{1}{|c|}{CPU -O3} & \multicolumn{1}{|c|}{CPU -O3 \& OpenMP} & \multicolumn{1}{|c|}{FPGA} \\ \hline \hline
-    Thread1       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Thread2       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Thread3       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Thread4       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Total       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    \begin{tabular}{|c|c|c|c|} \hline
+    \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{CPU} & \multicolumn{1}{|c|}{CPU -O3 \& OpenMP} & \multicolumn{1}{|c|}{FPGA} \\ \hline \hline
+    Thread1       & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread2       & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread3       & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread4       & 10[1] & 10[1] & 10[1] \\ \hline
+    Total         & 10[1] & 10[1] & 10[1] \\ \hline
     \end{tabular}
     \end{center}
 \end{table}
