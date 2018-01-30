@@ -25,7 +25,8 @@ AXI4-Streamはデータストリーム用のインターフェイスである。
 演算を行うと同時にもう片方のバッファで次のデータの書き込みが可能となる。
 
 畳み込み演算はPEで行う。図\ref{fig:para_inception}で示した4つの計算スレッドのうちThread2、Thread3、Thread4については畳み込みやpooling処理
-が連続して行われているので図\ref{fig:thread_module}が2つ接続するようなモジュールとなる。
+が連続して行われているので図\ref{fig:thread_module}が2つ接続するようなモジュールとなる。ストリーム処理を行い、パイプライン化するためにモジュール間には
+バッファを設ける。
 
 \section{畳み込み演算器の実装}
 \label{sec:conv_impl}
@@ -72,5 +73,18 @@ AXI4-Streamはデータストリーム用のインターフェイスである。
     \label{fig:conv_pe}
 \end{figure}
 % 畳み込み演算器のタイリングしたモジュールの説明を入れる。
+
+\section{maxpooling演算器の実装}
+\label{sec:max_impl}
+maxpooling処理は式\ref{eq:pool}で示された最大値を取る演算を行う。
+カーネルサイズの領域を入力特徴マップから抽出し、その領域内での最大値を取得し出力特徴マップに書き込むという処理を行う。
+領域内の各要素について逐次的に前後の値を比較し、出力値の候補を探していく処理となるが、本研究では高速化を図るため、トーナメント方式に
+値を比較する演算器を実装した。その模式図をmaxpooling処理の具体例とともに図\ref{fig:maxpool_pe}にモジュールの模式図を示す。
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=12cm]{./chap6/fig/maxpool_pe.pdf}
+  \caption{モジュールの模式図}
+  \label{fig:maxpool_pe}
+\end{figure}
 }
 
