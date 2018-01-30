@@ -12,45 +12,41 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 
 \section{リソース使用量と割合}
 \label{sec:resource_util}
-% 表\ref{table:resource_util}に各スレッドモジュールのFPGA合成結果のリソース使用率を示す。
+表\ref{table:resource_util}に各スレッドモジュールのFPGA合成結果のリソース使用率を示す。
 
-% \begin{table}[p]
-%     \begin{center}
-%     \caption{各スレッドにおけるFPGAボードのリソース使用量とその割合 []内は\%}
-%     \label{table:resource_util}
-%     \scalebox{0.8}[0.8]{
-%     \begin{tabular}{|c|c|c|c|c|} \hline
-%     \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{BRAM_18K} & \multicolumn{1}{|c|}{DSP48} & \multicolumn{1}{|c|}{FF} & \multicolumn{1}{|c|}{LUT} \\ \hline \hline
-%     Thread1       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Thread2       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Thread3       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Thread4       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     \end{tabular}
-%     }
-%     \end{center}
-% \end{table}
+\begin{table}[p]
+    \begin{center}
+    \caption{各スレッドにおけるFPGAボードのリソース使用量とその割合 []内は\%}
+    \label{table:resource_util}
+    \begin{tabular}{|c|c|c|c|c|} \hline
+    \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{BRAM\_18K} & \multicolumn{1}{|c|}{DSP48} & \multicolumn{1}{|c|}{FF} & \multicolumn{1}{|c|}{LUT} \\ \hline \hline
+    Thread1       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread2       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread3       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread4       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table}
 
 
-% \section{実行時間の比較}
-% \label{sec:resource_util}
+\section{実行時間の比較}
+\label{sec:resource_util}
 
-% 表\ref{table:exec_time}に各スレッドモジュールのFPGA実行時間とCPUでの実行時間を示す。
-% また全ての演算を行った際の合計の実行時間も示す。
+表\ref{table:exec_time}に各スレッドモジュールのFPGA実行時間とCPUでの実行時間を示す。
+また全ての演算を行った際の合計の実行時間も示す。
 
-% \begin{table}[p]
-%     \begin{center}
-%     \caption{各スレッドにおけるFPGAボードのリソース使用量とその割合 []内は\%}
-%     \label{table:exec_time}
-%     \scalebox{0.8}[0.8]{
-%     \begin{tabular}{|c|c|c|c|c|} \hline
-%     \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{CPU} & \multicolumn{1}{|c|}{CPU -O3} & \multicolumn{1}{|c|}{CPU -O3 & OpenMP} & \multicolumn{1}{|c|}{FPGA} \\ \hline \hline
-%     Thread1       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Thread2       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Thread3       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Thread4       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     Total       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-%     \end{tabular}
-%     }
-%     \end{center}
-% \end{table}
+\begin{table}[p]
+    \begin{center}
+    \caption{各スレッドにおけるFPGAボードのリソース使用量とその割合 []内は\%}
+    \label{table:exec_time}
+    \begin{tabular}{|c|c|c|c|c|} \hline
+    \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{CPU} & \multicolumn{1}{|c|}{CPU -O3} & \multicolumn{1}{|c|}{CPU -O3 \& OpenMP} & \multicolumn{1}{|c|}{FPGA} \\ \hline \hline
+    Thread1       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread2       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread3       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread4       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Total       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    \end{tabular}
+    \end{center}
+\end{table}
 }
