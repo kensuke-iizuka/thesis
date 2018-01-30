@@ -22,10 +22,10 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
     \label{table:resource_util}
     \begin{tabular}{|c|c|c|c|c|} \hline
     \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{BRAM\_18K} & \multicolumn{1}{|c|}{DSP48} & \multicolumn{1}{|c|}{FF} & \multicolumn{1}{|c|}{LUT} \\ \hline \hline
-    Thread1       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Thread2       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Thread3       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
-    Thread4       & 10[1] & 10[1] & 10[1] & 10[1] \\ \hline
+    Thread1       & 96[2.8\%] & 96[12.5\%] & 29120[2.7\%] & 125192[24\%] \\ \hline
+    Thread2       & 962[28.6\%] & 628[81.7\%] & 152803[14.2\%] & 451386[84\%] \\ \hline
+    Thread3       & 360[10.7\%] & 198[4.7\%] & 50949[4.7\%] & 167263[31\%] \\ \hline
+    Thread4       & 208[6\%] & 96[3.5\%] & 37452[3.5\%] & 154785[28.8\%] \\ \hline
     \end{tabular}
     \end{center}
 \end{table}
@@ -49,22 +49,22 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 
 \begin{table}[p]
     \begin{center}
-    \caption{各スレッドとInception(3a)層全体の実行時間の比較}
+    \caption{各スレッドとInception(3a)層全体の実行時間[ms]の比較}
     \label{table:exec_time}
     \begin{tabular}{|c|c|c|c|} \hline
     \multicolumn{1}{|c|}{Thread} & \multicolumn{1}{|c|}{FPGA} & \multicolumn{1}{|c|}{CPU} & \multicolumn{1}{|c|}{CPU -O3 \& OpenMP} \\ \hline \hline
-    Thread1       & 10 & 123 & 19 \\ \hline
-    Thread2       & 10 & 1022 & 65 \\ \hline
-    Thread3       & 10 & 132 & 19 \\ \hline
-    Thread4       & 10 & 74 & 73 \\ \hline
-    Total         & 10 & 1309 & 142 \\ \hline
+    Thread1       & 3.1 & 123 & 19 \\ \hline
+    Thread2       & 15.5 & 1022 & 65 \\ \hline
+    Thread3       & 6.77 & 132 & 19 \\ \hline
+    Thread4       & 12.09 & 74 & 73 \\ \hline
+    Total         & 15.5 & 1309 & 142 \\ \hline
     \end{tabular}
     \end{center}
 \end{table}
 
 Inception層では前層の出力特徴マップが全て揃うまで演算を行うことができないので
 各スレッドはお互いの処理が終了するまでは待機していなければいけない．
-そのため，Inception層自体の実行時間は一番処理に時間がかかるスレッドに律速されてしまう．
+そのため，Inception層自体の実行時間は一番処理に時間がかかるスレッドに律されてしまう．
 以上の結果からInception(3a)層において，FiC-SWはOpenMPを利用して最適化を図ったIntel Xeon CPU E5-2667 0(@2.90GHz)に対して，
 〇〇倍の高速化を達成した．
 }
