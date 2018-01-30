@@ -63,7 +63,7 @@ AXI4-Streamはデータストリーム用のインターフェイスである。
     \end{verbatim}
 \end{itembox}
 
-\ref{code:conv_tile}がループタイリングを行った疑似コードである。$T_m$、$T_n$がそれぞれ入力値、出力値のタイルのサイズとなっている。
+\ref{code:conv_tile}がループタイリングを行った疑似コードである。$T_m$が\ref{sec:conv_para}節で説明した、出力値による分割である．
 この疑似コードに倣って演算モジュールを作ると図\ref{fig:conv_pe}のような演算器を設計できる。
 
 \begin{figure}[h]
@@ -72,8 +72,9 @@ AXI4-Streamはデータストリーム用のインターフェイスである。
     \caption{畳み込み演算器の模式図}
     \label{fig:conv_pe}
 \end{figure}
-% 畳み込み演算器のタイリングしたモジュールの説明を入れる。
 
+この演算器は複数の積和演算器を並列に並べたものとなっている．この演算器は$T_n$個の入力値と$T_n \times T_m$個の重みから
+$T_m$個の出力値を得る．
 \section{maxpooling演算器の実装}
 \label{sec:max_impl}
 maxpooling処理は式\ref{eq:pool}で示された最大値を取る演算を行う。

@@ -4,15 +4,15 @@
 
 \section{評価環境}
 \label{sec:eval_env}
-実装はVivado HLS(2017.3)を用いて実装を行った。対象となるFPGAボードは\ref{chap:ficsw}章の\ref{sec:about_ficsw}節でも言及した
-Xilinx社のKintex Ultrascale　XCKU095-FFVB2104である。動作周波数は100MHzとした。
+実装はVivado HLS(2017.3)を用いて実装を行った．対象となるFPGAボードは\ref{chap:ficsw}章の\ref{sec:about_ficsw}節でも言及した
+Xilinx社のKintex Ultrascale　XCKU095-FFVB2104である．動作周波数は100MHzとした．
 Vivado HLS上でのシュミレーションの実行サイクル数から実行時間を計算した。
-比較対象となるCPUはIntel(R) Xeon(R) CPU E5-2667 0(@2.90GHz)を用いて、g++4.4.7でO3最適化とOpenMPを使って
-コンパイルしたアプリケーションの実行時間を計測した。
+比較対象となるCPUはIntel(R) Xeon(R) CPU E5-2667 0(@2.90GHz)を用いて，g++4.4.7でのO3最適化とOpenMPを使って
+コンパイルしたアプリケーションの実行時間を計測した．
 
 \section{リソース使用量と割合}
 \label{sec:resource_util}
-表\ref{table:resource_util}に各スレッドモジュールのFPGA合成結果のリソース使用率を示す。
+表\ref{table:resource_util}に各スレッドモジュールのFPGA合成結果のリソース使用率を示す．
 
 \begin{table}[p]
     \begin{center}
@@ -32,8 +32,8 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 \section{実行時間の比較}
 \label{sec:resource_util}
 
-表\ref{table:exec_time}に各スレッドモジュールのFPGA実行時間とCPUでの実行時間を示す。
-また全ての演算を行った際の合計の実行時間も示す。
+表\ref{table:exec_time}に各スレッドモジュールのFPGA実行時間とCPUでの実行時間を示す．
+また全ての演算を行った際の合計の実行時間も示す．
 
 \begin{table}[p]
     \begin{center}
@@ -51,6 +51,6 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 \end{table}
 
 Inception層では前層の出力特徴マップが全て揃うまで演算を行うことができないので
-各スレッドはお互いの処理が終了するまでは待機していなければいけない。
-そのため、Inception層自体の実行時間は一番処理に時間がかかるスレッドに律速されてしまう。
+各スレッドはお互いの処理が終了するまでは待機していなければいけない．
+そのため，Inception層自体の実行時間は一番処理に時間がかかるスレッドに律速されてしまう．
 }

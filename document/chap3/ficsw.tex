@@ -66,14 +66,16 @@
   サーキット数を増やすために静的時分割多重(STDM: Static Time Division Mutipling)による通信様式をとる．
   
   図\ref{fig:arch-sw}は4リンクからなるシリアル入力から同じく4リンクからなるシリアル出力へのスイッチの模式図である．
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=12cm]{./chap3/fig/arch_sw.pdf}
+    \caption{FiCのアーキテクチャ}
+    \label{fig:arch-sw}
+  \end{figure}
   各リンクが4スロットを有していると仮定している．図中に示される入力スロットと出力スロットの接続が回線を確立する．
-  図の破線矢印で示されるように1スロットから複数スロットへの出力を設定することも可能なので，
-  容易にブロードキャストを行える．
-  
-   \begin{figure}[h]
-     \centering
-     \includegraphics[width=12cm]{./chap3/fig/arch_sw.pdf}
-     \caption{FiCのアーキテクチャ}
-     \label{fig:arch-sw}
-   \end{figure}
+  図の破線矢印で示されるように1スロットから複数スロットへの出力を設定することも可能なので，容易にブロードキャストを行える．
+  また図\ref{fig:arch-sw}の下部に示されているFPGA内部のロジックへの入出力とスイッチのスロットを接続することで
+  FPGAで入力に対して演算を行い，その結果を再びスイッチのスロットに送信することで演算回路と他のFPGAとの通信を設定することができる．
+  スイッチングにかかる時間は，入力とFPGAの内部ロジックの関係により決定するため，例えばアクセラレータを実装したときに複数のFPGAに
+  またがった動作時間が確実に定まるようにすることで通信のオーバーヘッドを削減することができる．
 }
