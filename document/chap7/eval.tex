@@ -14,7 +14,7 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 \section{リソース使用量と割合}
 \label{sec:resource_util}
 表\ref{table:resource_util}に各スレッドモジュールのFPGA合成結果のリソース使用率を示す．
-[]内はその割合を\%で示している．．
+[]内はその割合を\%で示している．
 
 \begin{table}[p]
     \begin{center}
@@ -39,6 +39,7 @@ Vivado HLS上でのシュミレーションの実行サイクル数から実行�
 
 \begin{figure}[h]
     \centering
+    \caption{各スレッドとInception(3a)層全体の実行時間[ms]の比較}
     \includegraphics[width=15cm]{./chap7/fig/exec_time.pdf}
     \caption{}
     \label{fig:exec_graph}
@@ -66,5 +67,5 @@ Inception層では前層の出力特徴マップが全て揃うまで演算を�
 各スレッドはお互いの処理が終了するまでは待機していなければいけない．
 そのため，Inception層自体の実行時間は一番処理に時間がかかるスレッドに律されてしまう．
 以上の結果からInception(3a)層において，FiC-SWはOpenMPを利用して最適化を図ったIntel Xeon CPU E5-2667 0(@2.90GHz)に対して，
-〇〇倍の高速化を達成した．
+約9.1倍の高速化を達成した．
 }
