@@ -10,7 +10,6 @@ GoogleNetは畳込みニューラルネットワーク(CNN: Convolutional Neural
 で登場したAlexNet\cite{alexnet}が高い認識精度を出して優勝したことからCNNは特に画像認識の分野で優れた識別精度をマークすることがわかり世界で注目されるようになった．
 ILSVRCでは与えられた画像に何が映っているのか，画像のどこに映っているのかなどをいかに高精度に認識させるかを競う大会である．
 AlexNetのILSVRC優勝を皮切りに様々なCNNのモデルの検討，実装が行われ最新のモデルは人間の認識精度を超える精度を出すようにまでなった．
-%Neural Networkの説明
 
 \subsection{Neural Network}
 \label{sec:nn}
@@ -66,19 +65,13 @@ AlexNet， GoogLeNetそれぞれについて図にその全体像を示す．
 
 \begin{figure}[h]
   \centering
-  \includegraphics[scale=0.5]{./chap2/fig/alexnet.png}
-  \caption{AlexNetのアーキテクチャ}
-  \label{fig:alexnet}
-\end{figure}
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[scale=0.2]{./chap2/fig/googlenet.png}
-  \caption{GoogLeNetのアーキテクチャ}
+  \includegraphics[scale=0.5]{./chap2/fig/arch_diff.png}
+  \caption{GoogLeNet(右)とAlexNet(左)のアーキテクチャ}
   \label{fig:googlenet}
 \end{figure}
 
-図\ref{fig:alexnet}，\ref{fig:googlenet}のブロックはそれぞれの演算層を示している．
+
+\ref{fig:googlenet}のブロックはそれぞれの演算層を示している．
 青のブロックは畳込み層，赤はpooling層，ピンクは全結合層，黄色はsoftmax層と呼ばれる画像分類のために用いられる．
 GoogLeNetの出力に近いピンクのブロックは全結合層ではなくdropoutと呼ばれる精度を落とさないために前の層の出力結果を
 次の層に伝搬させない，具体的にはゼロを乗算するという操作を行っている．
@@ -91,7 +84,7 @@ GoogLeNetは層を深くする代わりにそのフィルタサイズを小さ�
 
 \section{Inception}
 \label{sec:inception}
-Inception層は次の図で示される(これは図\ref{fig:googlenet}の一部を拡大したものと同じである)
+Inception層は次の図で示される(これは図\ref{fig:googlenet}のGoogLeNet一部を拡大したものと同じである)
 
 \begin{figure}[h]
   \centering
